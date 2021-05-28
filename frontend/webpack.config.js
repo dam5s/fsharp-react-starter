@@ -4,7 +4,7 @@
 
 var path = require("path");
 
-module.exports = (argv) => ({
+module.exports = (env, argv) => ({
     mode: argv.mode || "development",
     entry: "./src/App.fs.js",
     output: {
@@ -14,7 +14,7 @@ module.exports = (argv) => ({
     devServer: {
         publicPath: "/",
         contentBase: "./public",
-        port: 8080,
+        port: 3000,
     },
     module: {
     }

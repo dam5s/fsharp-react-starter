@@ -1,14 +1,23 @@
 module App
 
 open Browser.Dom
+open Feliz
 
-// Mutable variable to count the number of times we clicked the button
-let mutable count = 0
+[<ReactComponent>]
+let Counter() =
+    let (count, setCount) = React.useState(0)
 
-// Get a reference to our button and cast the Element to an HTMLButtonElement
-let myButton = document.querySelector(".my-button") :?> Browser.Types.HTMLButtonElement
+    Html.button [
+        prop.text $"Clicked %d{count} times"
+        prop.onClick (fun _ -> setCount(count + 1))
+    ]
 
-// Register our listener
-myButton.onclick <- fun _ ->
-    count <- count + 1
-    myButton.innerText <- sprintf "You clicked: %i time(s)" count
+[<ReactComponent>]
+let App() =
+    Html.main [
+        Html.p "Fable is running"
+        Html.p "You can click on this react counter"
+        Counter()
+    ]
+
+ReactDOM.render(App(), document.getElementById "root")
