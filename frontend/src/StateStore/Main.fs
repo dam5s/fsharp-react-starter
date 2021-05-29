@@ -2,14 +2,16 @@
 
 open Prelude.Redux
 open Page
+open Counter
 
-type State = { Page: Page }
+type AppState = { Page: Page; Counter: int }
 
-let reducer (action: Action) (state: State) =
-    match action with
-    | :? Page.Action as pageAction -> { Page = Page.reducer pageAction state.Page }
+let reducer (obj: Action) (state: AppState) =
+    match obj with
+    | :? Page.Action as action -> { state with Page = Page.reducer action state.Page }
+    | :? Counter.Action as action -> { state with Counter = Counter.reducer action state.Counter }
     | _ -> state
 
-let initialState = { Page = HomePage }
+let private initialState = { Page = HomePage; Counter = 0 }
 
 let stateStore = StateStore(initialState, reducer)

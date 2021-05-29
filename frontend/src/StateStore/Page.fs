@@ -7,7 +7,7 @@ type Page =
 [<RequireQualifiedAccess>]
 module Page =
     type Action =
-        | ChangePage of Page
+        | Change of Page
 
-    let reducer (ChangePage newPage) (_: Page) =
+    let reducer (Change newPage) (_: Page) =
         newPage

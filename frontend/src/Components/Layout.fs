@@ -1,17 +1,19 @@
 ﻿module Components.Layout
 
+open Browser.Types
 open Feliz
-open StateStore.Main
 open StateStore.Page
-open Components.Counter
+open StoreProvider
+open Counter
 
 [<ReactComponent>]
 let Layout () =
-    let changePage page _ =
-        stateStore.Dispatch(Page.ChangePage page)
+    let dispatch = useDispatch ()
+    let page = useSelector (fun s -> s.Page)
 
-    let page =
-        stateStore.Select(fun s -> s.Page)
+    let changePage page (event: MouseEvent) =
+        event.preventDefault ()
+        dispatch (Page.Change page)
 
     let counterContent _ =
         [ Html.h1 "Counter"
@@ -23,12 +25,13 @@ let Layout () =
         | HomePage -> [ Html.h1 "Home" ]
         | CounterPage -> counterContent ()
 
+    let link (text: string) href onClick =
+        Html.a [ prop.href href; prop.text text; prop.onClick onClick ]
+
     Html.div [
-        Html.nav [ Html.a [ prop.href "#"
-                            prop.text "Home"
-                            prop.onClick (changePage HomePage) ]
-                   Html.a [ prop.href "#"
-                            prop.text "Counter"
-                            prop.onClick (changePage CounterPage) ] ]
+        Html.nav [
+            link "Home" "/#/home" (changePage HomePage)
+            link "Counter" "/#/counter" (changePage CounterPage)
+        ]
         Html.main pageContent
     ]

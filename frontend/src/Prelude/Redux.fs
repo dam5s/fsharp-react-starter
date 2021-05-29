@@ -1,7 +1,5 @@
 ﻿module Prelude.Redux
 
-open Feliz
-
 type private Subscription<'state> =
     abstract member Notify : 'state -> unit
 
@@ -35,18 +33,14 @@ type StateStore<'state when 'state : equality>
     let mutable state = state
     let mutable subs : Subscription<'state> list = []
 
-    let subscribe (transform: 'state -> 'a, onChange: 'a -> unit) =
+    member this.GetState () = state
+
+    member this.Subscribe (transform: 'state -> 'a, onChange: 'a -> unit) =
         let subscriber = Subscriber(state, transform, onChange)
         let subscription = subscriber :> Subscription<'state>
         subs <- subscription :: subs
 
-    member this.Select (transform: 'state -> 'a) =
-        let transformed _ = transform state
-        let (selectedState, setSelectedState) = React.useState(transformed)
-        subscribe (transform, setSelectedState)
-        selectedState
-
-    member this.Dispatch(action: Action) =
+    member this.Dispatch (action: Action) =
         state <- reducer action state
 
         for s in subs do
