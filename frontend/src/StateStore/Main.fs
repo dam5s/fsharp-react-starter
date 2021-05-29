@@ -12,6 +12,6 @@ let reducer (obj: Action) (state: AppState) =
     | :? Counter.Action as action -> { state with Counter = Counter.reducer action state.Counter }
     | _ -> state
 
-let private initialState = { Page = HomePage; Counter = 0 }
+let private initialState = { Page = Home; Counter = 0 }
 
 let stateStore = StateStore(initialState, reducer)

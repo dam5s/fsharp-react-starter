@@ -3,3 +3,4 @@ obj
 .idea
 *.fs.js
 node_modules
+dist

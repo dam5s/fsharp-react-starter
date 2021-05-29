@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
+    <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Include="Fable.Jester" Version="0.32.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\Example.test.fs" />
+    <None Include="splitter.config.js" />
+  </ItemGroup>
+</Project>

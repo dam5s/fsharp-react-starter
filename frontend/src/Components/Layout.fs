@@ -7,6 +7,10 @@ open StoreProvider
 open Counter
 
 [<ReactComponent>]
+let HomePage () =
+    Html.main [ Html.h1 "Home" ]
+
+[<ReactComponent>]
 let Layout () =
     let dispatch = useDispatch ()
     let page = useSelector (fun s -> s.Page)
@@ -15,23 +19,18 @@ let Layout () =
         event.preventDefault ()
         dispatch (Page.Change page)
 
-    let counterContent _ =
-        [ Html.h1 "Counter"
-          Html.p "You can click on this react counter"
-          Counter() ]
-
     let pageContent =
         match page with
-        | HomePage -> [ Html.h1 "Home" ]
-        | CounterPage -> counterContent ()
+        | Home -> HomePage ()
+        | Counter -> CounterPage ()
 
     let link (text: string) href onClick =
         Html.a [ prop.href href; prop.text text; prop.onClick onClick ]
 
     Html.div [
         Html.nav [
-            link "Home" "/#/home" (changePage HomePage)
-            link "Counter" "/#/counter" (changePage CounterPage)
+            link "Home" "/#/home" (changePage Page.Home)
+            link "Counter" "/#/counter" (changePage Page.Counter)
         ]
-        Html.main pageContent
+        pageContent
     ]

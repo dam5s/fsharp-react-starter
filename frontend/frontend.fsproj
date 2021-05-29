@@ -11,6 +11,7 @@
     <Compile Include="src\Components\Counter.fs" />
     <Compile Include="src\Components\Layout.fs" />
     <Compile Include="src\App.fs" />
+    <None Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />

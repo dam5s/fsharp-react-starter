@@ -1,8 +1,8 @@
 ﻿module StateStore.Page
 
 type Page =
-    | HomePage
-    | CounterPage
+    | Home
+    | Counter
 
 [<RequireQualifiedAccess>]
 module Page =
