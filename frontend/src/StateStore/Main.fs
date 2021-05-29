@@ -14,4 +14,4 @@ let reducer (obj: Action) (state: AppState) =
 
 let private initialState = { Page = Home; Counter = 0 }
 
-let stateStore = StateStore(initialState, reducer)
+let stateStore _ = StateStore(initialState, reducer)

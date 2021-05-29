@@ -8,6 +8,6 @@ open Components.Layout
 open StateStore.Main
 
 [<ReactComponent>]
-let AppRoot () = StoreProvider stateStore (Layout())
+let AppRoot () = StoreProvider (stateStore()) (Layout())
 
 ReactDOM.render (AppRoot(), document.getElementById "root")

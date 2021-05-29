@@ -5,7 +5,7 @@ open Prelude.Redux
 open StateStore.Main
 
 let private ctx =
-    React.createContext<StateStore<AppState>> ("stateStore", stateStore)
+    React.createContext<StateStore<AppState>> ("stateStore", stateStore())
 
 [<ReactComponent>]
 let StoreProvider (store: StateStore<AppState>) (child: ReactElement) =

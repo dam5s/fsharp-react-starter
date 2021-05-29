@@ -1,12 +1,8 @@
-// Note this only includes basic configuration for development mode.
-// For a more comprehensive configuration check:
-// https://github.com/fable-compiler/webpack-config-template
-
-var path = require("path");
+const path = require("path");
 
 module.exports = (env, argv) => ({
     mode: argv.mode || "development",
-    entry: "./src/App.fs.js",
+    entry: "./dist/src/App.js",
     output: {
         path: path.join(__dirname, "./public"),
         filename: "bundle.js",
