@@ -1,5 +1,7 @@
 ﻿module Prelude.Redux
 
+open System
+
 type private Subscription<'state> =
     abstract member Notify : 'state -> unit
 
@@ -33,12 +35,22 @@ type StateStore<'state when 'state : equality>
     let mutable state = state
     let mutable subs : Subscription<'state> list = []
 
+    let addSub sub =
+        subs <- sub :: subs
+
+    let removeSub sub =
+        subs <- subs |> List.except [ sub ]
+
     member this.GetState () = state
 
-    member this.Subscribe (transform: 'state -> 'a, onChange: 'a -> unit) =
+    member this.Subscribe (transform: 'state -> 'a, onChange: 'a -> unit): IDisposable =
         let subscriber = Subscriber(state, transform, onChange)
         let subscription = subscriber :> Subscription<'state>
-        subs <- subscription :: subs
+
+        addSub subscription
+
+        { new IDisposable with
+            member this.Dispose () = removeSub subscription }
 
     member this.Dispatch (action: Action) =
         state <- reducer action state

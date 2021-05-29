@@ -17,7 +17,7 @@ let useSelector (transform: AppState -> 'a) =
     let transformed _ = transform state
 
     let (selectedState, setSelectedState) = React.useState (transformed)
-    store.Subscribe(transform, setSelectedState)
+    React.useEffectOnce (fun () -> store.Subscribe(transform, setSelectedState))
 
     selectedState
 
