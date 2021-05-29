@@ -3,7 +3,12 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src/App.fs" />
+    <Compile Include="src\Prelude\Redux.fs" />
+    <Compile Include="src\StateStore\Page.fs" />
+    <Compile Include="src\StateStore\Main.fs" />
+    <Compile Include="src\Components\Counter.fs" />
+    <Compile Include="src\Components\Layout.fs" />
+    <Compile Include="src\App.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
