@@ -4,8 +4,9 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
-    <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Update="Fsharp.Core" Version="5.0.1" />
+    <PackageReference Include="Fable.Browser.Dom" Version="2.4.4" />
+    <PackageReference Include="Fable.Core" Version="3.2.7" />
     <PackageReference Include="Fable.Jester" Version="0.32.0" />
     <PackageReference Include="Fable.ReactTestingLibrary" Version="0.32.0" />
   </ItemGroup>

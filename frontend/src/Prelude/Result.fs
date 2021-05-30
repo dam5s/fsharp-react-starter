@@ -1,5 +1,5 @@
 [<RequireQualifiedAccess>]
-module Prelude.Result
+module Result
 
 let apply (func: Result<'a -> 'b, 'c>) (value: Result<'a, 'c>): Result<'b, 'c> =
     match func, value with

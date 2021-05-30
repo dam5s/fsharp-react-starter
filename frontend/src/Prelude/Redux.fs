@@ -1,4 +1,4 @@
-﻿module Prelude.Redux
+﻿module Redux
 
 open System
 

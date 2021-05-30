@@ -1,6 +1,6 @@
 ﻿module StateStore.Main
 
-open Prelude.Redux
+open Redux
 open AppState
 
 let middleware (dispatch: Dispatch) (state: AppState) (next: Dispatch) (action: Action) =

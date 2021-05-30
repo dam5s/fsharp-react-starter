@@ -1,7 +1,7 @@
 [<RequireQualifiedAccess>]
 module StateStore.Effects
 
-open Prelude.Redux
+open Redux
 open AppState
 open Networking
 

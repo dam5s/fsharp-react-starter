@@ -1,7 +1,6 @@
 ﻿module Components.JokePage
 
 open Feliz
-open Prelude.RemoteData
 open Components.StoreProvider
 open StateStore
 

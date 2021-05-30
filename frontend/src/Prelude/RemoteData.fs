@@ -1,4 +1,5 @@
-module Prelude.RemoteData
+[<AutoOpen>]
+module RemoteData
 
 type RemoteData<'a, 'b> =
     | NotLoaded

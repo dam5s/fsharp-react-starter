@@ -2,7 +2,6 @@
 module StateStore.Joke
 
 open Networking
-open Prelude.RemoteData
 
 type State =
     { Data: RemoteData<string, Http.Error> }
