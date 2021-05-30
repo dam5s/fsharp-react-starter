@@ -6,4 +6,3 @@
  * F# 5 
  * Fable
  * Feliz
- * Elmish
