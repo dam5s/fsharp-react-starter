@@ -4,7 +4,7 @@ open Fable.Jester
 open Fable.ReactTestingLibrary
 open StateStore.Main
 open Components.StoreProvider
-open Components.Counter
+open Components.CounterPage
 
 Jest.describe("Counter", fun () ->
     Jest.test("incrementing the counter", fun () ->

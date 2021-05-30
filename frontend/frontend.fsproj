@@ -1,14 +1,27 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="src\Prelude\Redux.fs" />
+    <Compile Include="src\Prelude\RemoteData.fs" />
+    <Compile Include="src\Prelude\Result.fs" />
+    <Compile Include="src\Prelude\Prelude.fs" />
+    <Compile Include="src\Prelude\Option.fs" />
+    <Compile Include="src\Prelude\AsyncResult.fs" />
+    <Compile Include="src\Networking\Json.fs" />
+    <Compile Include="src\Networking\Http.fs" />
+    <Compile Include="src\Networking\JokeApi.fs" />
     <Compile Include="src\StateStore\Page.fs" />
     <Compile Include="src\StateStore\Counter.fs" />
+    <Compile Include="src\StateStore\Joke.fs" />
+    <Compile Include="src\StateStore\AppState.fs" />
+    <Compile Include="src\StateStore\Effects.fs" />
     <Compile Include="src\StateStore\Main.fs" />
     <Compile Include="src\Components\StoreProvider.fs" />
-    <Compile Include="src\Components\Counter.fs" />
+    <Compile Include="src\Components\CounterPage.fs" />
+    <Compile Include="src\Components\JokePage.fs" />
     <Compile Include="src\Components\Layout.fs" />
     <Compile Include="src\App.fs" />
     <None Include="webpack.config.js" />
@@ -16,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Fable.Browser.Dom" Version="2.2.0" />
     <PackageReference Include="Fable.Core" Version="3.2.3" />
+    <PackageReference Include="Fable.Promise" Version="2.2.2" />
     <PackageReference Include="Feliz" Version="1.45.0" />
   </ItemGroup>
 </Project>

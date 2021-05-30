@@ -2,9 +2,10 @@
 
 open Browser.Types
 open Feliz
-open StateStore.Page
+open StateStore
 open StoreProvider
-open Counter
+open CounterPage
+open JokePage
 
 [<ReactComponent>]
 let HomePage () =
@@ -21,8 +22,9 @@ let Layout () =
 
     let pageContent =
         match page with
-        | Home -> HomePage ()
-        | Counter -> CounterPage ()
+        | Page.Home -> HomePage ()
+        | Page.Counter -> CounterPage ()
+        | Page.Joke -> JokePage ()
 
     let link (text: string) href onClick =
         Html.a [ prop.href href; prop.text text; prop.onClick onClick ]
@@ -31,6 +33,7 @@ let Layout () =
         Html.nav [
             link "Home" "/#/home" (changePage Page.Home)
             link "Counter" "/#/counter" (changePage Page.Counter)
+            link "Joke" "/#/joke" (changePage Page.Joke)
         ]
         pageContent
     ]

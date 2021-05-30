@@ -1,8 +1,11 @@
+[<RequireQualifiedAccess>]
 module StateStore.Counter
 
-[<RequireQualifiedAccess>]
-module Counter =
-    type Action = Increment
+type State = int
 
-    let reducer Increment count =
-        count + 1
+let init = 0
+
+type Action = Increment
+
+let reducer Increment count =
+    count + 1

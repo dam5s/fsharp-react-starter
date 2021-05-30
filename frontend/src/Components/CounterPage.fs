@@ -1,8 +1,8 @@
-﻿module Components.Counter
+﻿module Components.CounterPage
 
 open Feliz
 open Components.StoreProvider
-open StateStore.Counter
+open StateStore
 
 [<ReactComponent>]
 let Counter () =

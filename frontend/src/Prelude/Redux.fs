@@ -25,11 +25,15 @@ type private Subscriber<'state, 'transformed when 'transformed: equality>
                 onChange transformed
 
 type Action = obj
+type Dispatch = Action -> unit
+type Middleware<'state> = Dispatch -> 'state -> Dispatch -> Action -> unit
+type Reducer<'state> = Action -> 'state -> 'state
 
 type StateStore<'state when 'state : equality>
     (
         state: 'state,
-        reducer: Action -> 'state -> 'state
+        middleware: Middleware<'state>,
+        reducer: Reducer<'state>
     ) =
 
     let mutable state = state
@@ -53,7 +57,10 @@ type StateStore<'state when 'state : equality>
             member this.Dispose () = removeSub subscription }
 
     member this.Dispatch (action: Action) =
-        state <- reducer action state
+        let next action =
+            state <- reducer action state
 
-        for s in subs do
-            s.Notify state
+            for s in subs do
+                s.Notify state
+
+        middleware this.Dispatch state next action

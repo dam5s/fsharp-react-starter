@@ -1,13 +1,16 @@
-﻿module StateStore.Page
+﻿[<RequireQualifiedAccess>]
+module StateStore.Page
 
-type Page =
+type State =
     | Home
     | Counter
+    | Joke
 
-[<RequireQualifiedAccess>]
-module Page =
-    type Action =
-        | Change of Page
+let init =
+    Home
 
-    let reducer (Change newPage) (_: Page) =
-        newPage
+type Action =
+    | Change of State
+
+let reducer (Change newPage) (_: State) =
+    newPage

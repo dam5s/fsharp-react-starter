@@ -2,6 +2,7 @@ module Components.StoreProvider
 
 open Feliz
 open Prelude.Redux
+open StateStore.AppState
 open StateStore.Main
 
 let private ctx =
