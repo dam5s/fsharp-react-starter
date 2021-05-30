@@ -32,5 +32,6 @@ let property<'a> (name: string) (obj: JS.Object): Result<'a, string> =
 
 let objectProperty (name: string) (decoder: Decoder<'a>) (obj: JS.Object): Result<'a, string> =
     tryCast<JS.Object> obj?(name)
+    |> Option.bind (fun value -> if isNullOrUndefined value then None else Some value)
     |> Option.toResult $"Field '%s{name}' is not an object"
     |> Result.bind decoder

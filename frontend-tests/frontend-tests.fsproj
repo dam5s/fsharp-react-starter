@@ -11,9 +11,11 @@
     <PackageReference Include="Fable.ReactTestingLibrary" Version="0.32.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\TestingSupport\MockWebServer.fs" />
+    <Compile Include="src\TestingSupport\TestEnv.fs" />
     <Compile Include="src\Example.test.fs" />
     <Compile Include="src\Components\Counter.test.fs" />
-    <Compile Include="src\Components\Joke.test.fs" />
+    <Compile Include="src\Components\JokePage.test.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\frontend\frontend.fsproj" />

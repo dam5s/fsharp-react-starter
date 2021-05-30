@@ -41,6 +41,13 @@ let private readResponse (fetchResponse: Fetch.Response) =
         return { status = fetchResponse.status; body = body }
     }
 
+let private mapResponse (response: Response) =
+    match response.status with
+    | 200 -> Ok response
+    | 400 -> Error (ApiError response)
+    | 500 -> Error (ServerError response)
+    | _ -> Error (UnknownError response)
+
 let private decode (decoder: Json.Decoder<'a>) response =
     async {
         return decoder response.body |> Result.mapError DecodeError
@@ -49,7 +56,7 @@ let private decode (decoder: Json.Decoder<'a>) response =
 let sendRequest (request: Request): AsyncResult<Response, Error> =
     Fetch.fetch(fetchArgs request)
     |> Promise.bind readResponse
-    |> Promise.map Ok
+    |> Promise.map mapResponse
     |> Promise.catch (ConnectionError >> Result.Error)
     |> Async.AwaitPromise
 

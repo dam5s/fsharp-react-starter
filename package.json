@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "cd ./frontend && dotnet fable watch . --outDir dist --run webpack-dev-server",
+    "watchTests": "dotnet fable watch frontend-tests --outDir frontend-tests/dist --run jest --watchAll",
     "test": "dotnet fable frontend-tests --outDir frontend-tests/dist && jest"
   },
   "devDependencies": {
@@ -14,7 +15,8 @@
     "jest": "^26.6.3",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.11.2"
+    "webpack-dev-server": "^3.11.2",
+    "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
     "react": "^17.0.2",
