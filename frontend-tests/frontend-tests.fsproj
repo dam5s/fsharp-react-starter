@@ -12,6 +12,7 @@
   <ItemGroup>
     <Compile Include="src\Example.test.fs" />
     <Compile Include="src\Components\Counter.test.fs" />
+    <Compile Include="src\Components\Joke.test.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\frontend\frontend.fsproj" />

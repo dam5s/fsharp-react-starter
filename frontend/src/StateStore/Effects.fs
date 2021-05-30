@@ -18,4 +18,4 @@ let private loadJoke dispatch state =
 
 let middleware (dispatch: Dispatch) (state: AppState) (effect: Effect) =
     match effect with
-    | LoadJoke -> loadJoke dispatch state |> Async.Start
+    | LoadJoke -> loadJoke dispatch state |> Async.StartImmediate

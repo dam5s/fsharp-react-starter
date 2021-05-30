@@ -4,6 +4,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="src\Env.fs" />
     <Compile Include="src\Prelude\Redux.fs" />
     <Compile Include="src\Prelude\RemoteData.fs" />
     <Compile Include="src\Prelude\Result.fs" />
@@ -24,6 +25,7 @@
     <Compile Include="src\Components\JokePage.fs" />
     <Compile Include="src\Components\Layout.fs" />
     <Compile Include="src\App.fs" />
+    <None Include="src\env.js" />
     <None Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>

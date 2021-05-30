@@ -2,7 +2,8 @@
 module Networking.JokeApi
 
 let random (): AsyncResult<string, Http.Error> =
-    let request = Http.GET "http://api.icndb.com/jokes/random"
+    let apiUrl = Env.apiUrl()
+    let request = Http.GET $"%s{apiUrl}/jokes/random"
     let decoder = Json.objectProperty "value" (Json.property "joke")
 
     Http.sendRequestForJson request decoder
