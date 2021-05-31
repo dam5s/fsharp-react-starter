@@ -83,6 +83,7 @@ when I want to deploy to a different environment, the environment artifact is th
 ## TODO
 
  * Introduce routing
+ * CSS pipeline, maybe typesafe CSS from Feliz?  
  * Backend + Backend rendering?
  * End-to-end testing with Cypress
  * Fake build
