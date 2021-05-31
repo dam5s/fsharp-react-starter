@@ -40,7 +40,7 @@ Jest.describe("JokePage", fun () ->
 
         let store = stateStore()
         let page = RTL.render(StoreProvider store (JokePage()))
-        let find = page.findByText("There was an error loading the joke")
+        let find = page.findByText("There was an error loading the joke, please try again later")
 
         do! Jest.expect(find).resolves.toBeTruthy()
     })
@@ -51,7 +51,7 @@ Jest.describe("JokePage", fun () ->
 
         let store = stateStore()
         let page = RTL.render(StoreProvider store (JokePage()))
-        let find = page.findByText("There was an error loading the joke")
+        let find = page.findByText("There was an error loading the joke, please try again later")
 
         do! Jest.expect(find).resolves.toBeTruthy()
     })
