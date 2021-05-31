@@ -56,7 +56,6 @@ during tests I import `whatwg-fetch` as a polyfill for the NodeJS runtime.
 ### Important Networking related files
 
  * [frontend/src/Networking/Http.fs](frontend/src/Networking/Http.fs) for the base implementation of sending a request for JSON or not.
- * [frontend/src/Networking/Json.fs](frontend/src/Networking/Json.fs) for Json decoding. I may end-up replacing these two with a thin-layer on top of [Thoth.Fetch](https://thoth-org.github.io/Thoth.Fetch/)
  * [frontend-tests/src/TestingSupport/MockWebServer.fs](frontend-tests/src/TestingSupport/MockWebServer.fs) for the test version of an HTTP server.
  * [frontend-tests/src/Components/JokePage.test.fs](frontend-tests/src/Components/JokePage.test.fs) for example tests.
 
@@ -84,7 +83,6 @@ when I want to deploy to a different environment, the environment artifact is th
 ## TODO
 
  * Introduce routing
- * Try-out `Thoth.Fetch`
  * Backend + Backend rendering?
  * End-to-end testing with Cypress
  * Fake build

@@ -18,3 +18,10 @@ module AsyncResult =
             | Ok a -> return! mapping a
             | Error b -> return Error b
         }
+
+    let mapError mapping result =
+        async {
+            match! result with
+            | Ok a -> return Ok a
+            | Error b -> return Error (mapping b)
+        }
