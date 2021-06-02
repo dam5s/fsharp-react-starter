@@ -6,7 +6,11 @@ open AppState
 open Networking
 
 type Effect =
-    | LoadJoke
+    | LoadInitialJoke
+    | RefreshJoke
+
+let private doNothing =
+    async { return () }
 
 let private loadJoke dispatch state =
     dispatch Joke.StartLoading
@@ -16,6 +20,13 @@ let private loadJoke dispatch state =
         dispatch (Joke.FinishLoading result)
     }
 
+let private loadInitialJoke dispatch (state: AppState) =
+    if state.Joke.Data = NotLoaded
+    then loadJoke dispatch state
+    else doNothing
+
 let middleware (dispatch: Dispatch) (state: AppState) (effect: Effect) =
     match effect with
-    | LoadJoke -> loadJoke dispatch state |> Async.StartImmediate
+    | LoadInitialJoke -> loadInitialJoke dispatch state
+    | RefreshJoke -> loadJoke dispatch state
+    |> Async.StartImmediate

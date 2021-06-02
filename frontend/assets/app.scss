@@ -84,7 +84,15 @@ button {
   }
 }
 
+blockquote {
+  border-left: 0.8rem solid $primary;
+  padding: .8rem;
+  margin: 0 0 1.6rem;
+  line-height: 1.2;
+}
+
 footer {
   color: transparentize($foreground, .2);
   font-size: 1.4rem;
+  margin-bottom: 2.4rem;
 }
