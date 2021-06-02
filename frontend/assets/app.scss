@@ -82,6 +82,11 @@ button {
   &:active {
     background-color: $linkDark;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 }
 
 blockquote {
