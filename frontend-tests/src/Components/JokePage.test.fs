@@ -48,7 +48,7 @@ Jest.describe("JokePage", fun () ->
 
     Jest.test("on server error", promise {
         TestEnv.setApiUrl (server.Url "")
-        server.Stub 500 ({||} :> obj)
+        server.Stub 500 emptyJson
 
         let store = stateStore()
         let page = RTL.render(StoreProvider store (JokePage()))
