@@ -10,12 +10,12 @@ let middleware (dispatch: Dispatch) (state: AppState) (next: Dispatch) (action: 
 
 let reducer (obj: Action) (state: AppState) =
     match obj with
-    | :? Page.Action as action -> { state with Page = Page.reducer action state.Page }
+    | :? Navigation.Action as action -> { state with Navigation = Navigation.reducer action state.Navigation }
     | :? Counter.Action as action -> { state with Counter = Counter.reducer action state.Counter }
     | :? Joke.Action as action -> { state with Joke = Joke.reducer action state.Joke }
     | _ -> state
 
-let private initialState = { Page = Page.init
+let private initialState = { Navigation = Navigation.init
                              Counter = Counter.init
                              Joke = Joke.init }
 

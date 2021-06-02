@@ -21,11 +21,12 @@ Jest.describe("JokePage", fun () ->
         server.Stop()
     )
 
-    let jokeJson = {| value = {| joke = "hello world" |} |}
+    let jokeJson = {| value = {| joke = "hello world" |} |} :> obj
+    let emptyJson = {||} :> obj
 
     Jest.test("loading a random joke", promise {
         TestEnv.setApiUrl (server.Url "")
-        server.Stub 200 (jokeJson :> obj)
+        server.Stub 200 jokeJson
 
         let store = stateStore()
         let page = RTL.render(StoreProvider store (JokePage()))
@@ -36,7 +37,7 @@ Jest.describe("JokePage", fun () ->
 
     Jest.test("on decode error", promise {
         TestEnv.setApiUrl (server.Url "")
-        server.Stub 200 ({||} :> obj)
+        server.Stub 200 emptyJson
 
         let store = stateStore()
         let page = RTL.render(StoreProvider store (JokePage()))

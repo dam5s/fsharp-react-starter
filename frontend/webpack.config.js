@@ -14,7 +14,7 @@ module.exports = (env, argv) => ({
         publicPath: "/",
         contentBase: "./public",
         port: 3000,
+        historyApiFallback: {index: 'index.html'},
     },
-    module: {
-    }
+    module: {}
 });

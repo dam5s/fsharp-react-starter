@@ -1,39 +1,44 @@
 ﻿module Components.Layout
 
-open Browser.Types
 open Feliz
+open Feliz.Router
 open StateStore
 open StoreProvider
 open CounterPage
 open JokePage
+open PageLink
 
 [<ReactComponent>]
 let HomePage () =
     Html.main [ Html.h1 "Home" ]
 
+let PageNotFound () =
+    Html.main [ Html.p "This is not the page you are looking for."
+                Html.p [ Html.text "Go "; PageLink Navigation.Home ] ]
+
 [<ReactComponent>]
 let Layout () =
     let dispatch = useDispatch ()
-    let page = useSelector (fun s -> s.Page)
+    let page = useSelector (fun s -> s.Navigation.Page)
 
-    let changePage page (event: MouseEvent) =
-        event.preventDefault ()
-        dispatch (Page.Change page)
+    React.useEffectOnce (Router.currentPath >> Navigation.Navigate >> dispatch)
 
     let pageContent =
         match page with
-        | Page.Home -> HomePage ()
-        | Page.Counter -> CounterPage ()
-        | Page.Joke -> JokePage ()
+        | Some Navigation.Home -> HomePage ()
+        | Some Navigation.Counter -> CounterPage ()
+        | Some Navigation.Joke -> JokePage ()
+        | None -> PageNotFound ()
 
-    let link (text: string) href onClick =
-        Html.a [ prop.href href; prop.text text; prop.onClick onClick ]
-
-    Html.div [
-        Html.nav [
-            link "Home" "/#/home" (changePage Page.Home)
-            link "Counter" "/#/counter" (changePage Page.Counter)
-            link "Joke" "/#/joke" (changePage Page.Joke)
+    React.router [
+        router.pathMode
+        router.onUrlChanged (Navigation.Navigate >> dispatch)
+        router.children [
+            Html.nav [
+                PageLink Navigation.Home
+                PageLink Navigation.Counter
+                PageLink Navigation.Joke
+            ]
+            pageContent
         ]
-        pageContent
     ]

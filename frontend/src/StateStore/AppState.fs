@@ -1,5 +1,5 @@
 module StateStore.AppState
 
-type AppState = { Page: Page.State
+type AppState = { Navigation: Navigation.State
                   Counter: Counter.State
                   Joke: Joke.State }
