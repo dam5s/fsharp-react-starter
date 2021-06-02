@@ -26,6 +26,8 @@
     <Compile Include="src\Components\Layout.fs" />
     <Compile Include="src\App.fs" />
     <None Include="src\env.js" />
+    <None Include="assets\*" />
+    <None Include="index.html" />
     <None Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup>

@@ -3,12 +3,12 @@
 open Redux
 open AppState
 
-let middleware (dispatch: Dispatch) (state: AppState) (next: Dispatch) (action: Action) =
+let private middleware (dispatch: Dispatch) (state: AppState) (next: Dispatch) (action: Action) =
     match action with
     | :? Effects.Effect as effect -> Effects.middleware dispatch state effect
     | _ -> next action
 
-let reducer (obj: Action) (state: AppState) =
+let private reducer (obj: Action) (state: AppState) =
     match obj with
     | :? Navigation.Action as action -> { state with Navigation = Navigation.reducer action state.Navigation }
     | :? Counter.Action as action -> { state with Counter = Counter.reducer action state.Counter }

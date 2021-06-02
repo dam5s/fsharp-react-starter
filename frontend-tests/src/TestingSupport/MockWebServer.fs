@@ -5,7 +5,7 @@ open Fable.Core.JsInterop
 open Node
 
 // Polyfill for fetch
-importDefault "whatwg-fetch" |> ignore
+importAll "whatwg-fetch"
 
 type MockWebServer =
     { Stop: unit -> unit
