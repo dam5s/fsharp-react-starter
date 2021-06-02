@@ -10,11 +10,12 @@ open PageLink
 
 [<ReactComponent>]
 let HomePage () =
-    Html.main [ Html.h1 "Home" ]
+    Html.main [ Html.h1 "Home"
+                Html.p "There is not much to see here, maybe you want to give the menu a shot." ]
 
 let PageNotFound () =
     Html.main [ Html.p "This is not the page you are looking for."
-                Html.p [ Html.text "Go "; PageLink Navigation.Home ] ]
+                Html.p [ Html.text "Go "; PageLink (None, Navigation.Home) ] ]
 
 [<ReactComponent>]
 let Layout () =
@@ -35,9 +36,9 @@ let Layout () =
         router.onUrlChanged (Navigation.Navigate >> dispatch)
         router.children [
             Html.nav [
-                PageLink Navigation.Home
-                PageLink Navigation.Counter
-                PageLink Navigation.Joke
+                PageLink (page, Navigation.Home)
+                PageLink (page, Navigation.Counter)
+                PageLink (page, Navigation.Joke)
             ]
             pageContent
         ]

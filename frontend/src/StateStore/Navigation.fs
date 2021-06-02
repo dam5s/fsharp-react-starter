@@ -22,7 +22,6 @@ let href page =
     | Joke -> "/joke"
 
 let reducer (Navigate newRoute) (_: State): State =
-    eprintfn "Navigating to %A" newRoute
     match newRoute with
     | [] -> { Page = Some Home }
     | ["counter"] -> { Page = Some Counter }

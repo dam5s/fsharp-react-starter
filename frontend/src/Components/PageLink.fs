@@ -10,9 +10,11 @@ let private navigate (href: string) (event: MouseEvent) =
     Router.navigatePath href
 
 [<ReactComponent>]
-let PageLink (page: Navigation.Page) =
-    let href = Navigation.href page
+let PageLink (fromPage: Navigation.Page option, toPage: Navigation.Page) =
+    let href = Navigation.href toPage
+    let className = if fromPage = Some toPage then "active" else "inactive"
 
     Html.a [ prop.href href
-             prop.text $"%A{page}"
+             prop.text $"%A{toPage}"
+             prop.className className
              prop.onClick (navigate href) ]
