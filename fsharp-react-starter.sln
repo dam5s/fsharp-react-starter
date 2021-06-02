@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "frontend", "frontend\frontend.fsproj", "{079ACB6C-882C-4686-A9A0-0E623B9DA016}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Frontend", "Frontend\Frontend.fsproj", "{079ACB6C-882C-4686-A9A0-0E623B9DA016}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "frontend-tests", "frontend-tests\frontend-tests.fsproj", "{2B4B2516-A3F2-414A-A71B-6DCCB89FCC7A}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Frontend.Tests", "Frontend.Tests\Frontend.Tests.fsproj", "{2B4B2516-A3F2-414A-A71B-6DCCB89FCC7A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

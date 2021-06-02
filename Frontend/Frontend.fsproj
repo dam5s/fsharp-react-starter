@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <RootNamespace>frontend</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\Env.fs" />
+    <Compile Include="src\Prelude\Redux.fs" />
+    <Compile Include="src\Prelude\RemoteData.fs" />
+    <Compile Include="src\Prelude\Result.fs" />
+    <Compile Include="src\Prelude\Prelude.fs" />
+    <Compile Include="src\Prelude\Option.fs" />
+    <Compile Include="src\Prelude\AsyncResult.fs" />
+    <Compile Include="src\Networking\Http.fs" />
+    <Compile Include="src\Networking\JokeApi.fs" />
+    <Compile Include="src\StateStore\Navigation.fs" />
+    <Compile Include="src\StateStore\Counter.fs" />
+    <Compile Include="src\StateStore\Joke.fs" />
+    <Compile Include="src\StateStore\AppState.fs" />
+    <Compile Include="src\StateStore\Effects.fs" />
+    <Compile Include="src\StateStore\Main.fs" />
+    <Compile Include="src\Components\StoreProvider.fs" />
+    <Compile Include="src\Components\PageLink.fs" />
+    <Compile Include="src\Components\CounterPage.fs" />
+    <Compile Include="src\Components\JokePage.fs" />
+    <Compile Include="src\Components\Layout.fs" />
+    <Compile Include="src\App.fs" />
+    <None Include="src\env.js" />
+    <None Include="assets\*" />
+    <None Include="index.html" />
+    <None Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="Fsharp.Core" Version="5.0.1" />
+    <PackageReference Include="Fable.Browser.Dom" Version="2.4.4" />
+    <PackageReference Include="Fable.Core" Version="3.2.7" />
+    <PackageReference Include="Fable.Promise" Version="2.2.2" />
+    <PackageReference Include="Feliz" Version="1.45.0" />
+    <PackageReference Include="Feliz.Router" Version="3.8.0" />
+    <PackageReference Include="Thoth.Json" Version="5.1.0" />
+  </ItemGroup>
+</Project>

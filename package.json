@@ -3,9 +3,9 @@
   "name": "fsharp-react-starter",
   "version": "1.0.0",
   "scripts": {
-    "start": "cd ./frontend && dotnet fable watch . --outDir build --run webpack serve",
-    "watchTests": "dotnet fable watch frontend-tests --outDir frontend-tests/build --run jest --watchAll",
-    "test": "dotnet fable frontend-tests --outDir frontend-tests/build && jest"
+    "start": "cd ./Frontend && dotnet fable watch . --outDir build --run webpack serve",
+    "watchTests": "dotnet fable watch Frontend.Tests --outDir Frontend.Tests/build --run jest --watchAll",
+    "test": "dotnet fable Frontend.Tests --outDir Frontend.Tests/build && jest"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
