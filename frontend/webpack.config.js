@@ -7,15 +7,15 @@ module.exports = (env, argv) => ({
     mode: argv.mode || "development",
     entry: {
         env: "./src/env.js",
-        app: "./dist/src/App.js",
+        app: "./build/src/App.js",
     },
     output: {
-        path: path.join(__dirname, "./public"),
+        path: path.join(__dirname, "./dist"),
         filename: "[name].js",
     },
     devServer: {
         publicPath: "/",
-        contentBase: "./public",
+        contentBase: "./dist",
         port: 3000,
         historyApiFallback: true
     },
