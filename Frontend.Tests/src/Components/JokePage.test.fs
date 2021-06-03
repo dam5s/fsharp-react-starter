@@ -23,7 +23,7 @@ Jest.describe("JokePage", fun () ->
         server.Stop()
     )
 
-    let jokeJson = {| value = {| joke = "hello world" |} |} :> obj
+    let jokeJson = {| text = "hello world" |} :> obj
     let emptyJson = {||} :> obj
 
     Jest.test("loading a random joke", promise {

@@ -82,8 +82,7 @@ when I want to deploy to a different environment, the environment artifact is th
 
 ## TODO
 
- * Typesafe CSS from Feliz?
- * Backend + Backend rendering?
+ * Backend
+ * Backend rendering?
  * End-to-end testing with Cypress
  * Fake build
- * Use paket for easier dependency version management?

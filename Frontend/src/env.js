@@ -1,3 +1,3 @@
 window.env = {
-    apiUrl: 'https://api.icndb.com',
+    apiUrl: 'https://localhost:5001',
 }

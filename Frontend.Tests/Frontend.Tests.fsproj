@@ -2,7 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <RootNamespace>frontend-tests</RootNamespace>
+    <RootNamespace>Frontend.Tests</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Update="Fsharp.Core" Version="5.0.1" />

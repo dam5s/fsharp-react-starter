@@ -37,7 +37,7 @@ let JokePage () =
 
     Html.main [
         Html.h1 "Joke"
-        Html.blockquote [ prop.dangerouslySetInnerHTML text ]
+        Html.blockquote text
         Html.footer [ Html.text "This joke courtesy of "
                       Html.a [ prop.text "The Internet Chuck Norris Database.";
                                prop.href "https://www.icndb.com/" ]
