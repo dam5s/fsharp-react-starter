@@ -36,11 +36,11 @@ those components can have children that do care about it but they don't have to 
 
 ### Important Redux related files
 
- * [frontend/src/Prelude/Redux.fs](frontend/src/Prelude/Redux.fs) for the generic `StateStore` implementation
- * [frontend/src/StateStore/Main.fs](frontend/src/StateStore/Main.fs) for the top-level declaration of the application's `stateStore`
- * [frontend/src/Components/StoreProvider.fs](frontend/src/Components/StoreProvider.fs) for the React provider of the application `stateStore`, it depends on the above for extra type-safety.
- * [frontend/src/App.fs](frontend/src/App.fs) where it gets initially configured
- * [frontend/src/Components/JokePage.fs](frontend/src/Components/JokePage.fs) where it's used
+ * [Frontend/src/Prelude/Redux.fs](Frontend/src/Prelude/Redux.fs) for the generic `StateStore` implementation
+ * [Frontend/src/StateStore/Main.fs](Frontend/src/StateStore/Main.fs) for the top-level declaration of the application's `stateStore`
+ * [Frontend/src/Components/StoreProvider.fs](Frontend/src/Components/StoreProvider.fs) for the React provider of the application `stateStore`, it depends on the above for extra type-safety.
+ * [Frontend/src/App.fs](Frontend/src/App.fs) where it gets initially configured
+ * [Frontend/src/Components/JokePage.fs](Frontend/src/Components/JokePage.fs) where it's used
 
 ## Networking and testing
 
@@ -55,9 +55,9 @@ during tests I import `whatwg-fetch` as a polyfill for the NodeJS runtime.
 
 ### Important Networking related files
 
- * [frontend/src/Networking/Http.fs](frontend/src/Networking/Http.fs) for the base implementation of sending a request for JSON or not.
- * [frontend-tests/src/TestingSupport/MockWebServer.fs](frontend-tests/src/TestingSupport/MockWebServer.fs) for the test version of an HTTP server.
- * [frontend-tests/src/Components/JokePage.test.fs](frontend-tests/src/Components/JokePage.test.fs) for example tests.
+ * [Frontend/src/Networking/Http.fs](Frontend/src/Networking/Http.fs) for the base implementation of sending a request for JSON or not.
+ * [Frontend-tests/src/TestingSupport/MockWebServer.fs](Frontend-tests/src/TestingSupport/MockWebServer.fs) for the test version of an HTTP server.
+ * [Frontend-tests/src/Components/JokePage.test.fs](Frontend-tests/src/Components/JokePage.test.fs) for example tests.
 
 ## Building/Deploying to multiple environments
 
@@ -75,10 +75,10 @@ when I want to deploy to a different environment, the environment artifact is th
 
 ### Important Environment related files
 
- * [frontend/webpack.config.js](frontend/webpack.config.js) defines the two separate entries.
- * [frontend/src/env.js](frontend/src/env.js) defines my default environment config.
- * [frontend/src/Env.fs](frontend/src/Env.fs) provides access to the environment.
- * [frontend-tests/src/TestingSupport/TestEnv.fs](frontend-tests/src/TestingSupport/TestEnv.fs) to configure the environment during tests.
+ * [Frontend/webpack.config.js](Frontend/webpack.config.js) defines the two separate entries.
+ * [Frontend/src/env.js](Frontend/src/env.js) defines my default environment config.
+ * [Frontend/src/Env.fs](Frontend/src/Env.fs) provides access to the environment.
+ * [Frontend-tests/src/TestingSupport/TestEnv.fs](Frontend-tests/src/TestingSupport/TestEnv.fs) to configure the environment during tests.
 
 ## TODO
 
